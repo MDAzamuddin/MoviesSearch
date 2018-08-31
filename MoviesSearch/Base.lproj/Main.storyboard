@@ -65,6 +65,10 @@
                                             <constraint firstItem="nDl-fd-BUZ" firstAttribute="top" secondItem="TnL-TH-BNZ" secondAttribute="topMargin" id="e2J-wg-GVU"/>
                                             <constraint firstItem="hXe-Qp-WVu" firstAttribute="top" secondItem="nDl-fd-BUZ" secondAttribute="bottom" constant="6" id="xk4-Jh-L3p"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="posterImage" destination="nDl-fd-BUZ" id="C6N-QX-LdF"/>
+                                            <outlet property="titleLbl" destination="hXe-Qp-WVu" id="tV7-hI-e8b"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -85,10 +89,14 @@
                         <barButtonItem key="rightBarButtonItem" image="icons8-filter-and-sort-30" id="s9z-3u-6N1">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="filterMovies:" destination="FdJ-OJ-u9y" id="vNh-eP-X8K"/>
+                                <action selector="filterMovies:" destination="FdJ-OJ-u9y" id="RWA-xN-Tgz"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="qDK-gn-ODy" id="Wdb-FV-ha0"/>
+                        <outlet property="movieSearch" destination="JY6-8B-zQ7" id="dJn-7o-p6c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EQS-o9-yWe" sceneMemberID="firstResponder"/>
             </objects>
@@ -214,6 +222,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="i85-RT-Ic0"/>
                     </view>
+                    <connections>
+                        <outlet property="detailOriginalTitle" destination="NcM-WV-k9P" id="hj7-VR-AtB"/>
+                        <outlet property="detailOverview" destination="SYp-EX-8zD" id="HQL-Yk-V4r"/>
+                        <outlet property="detailPoster" destination="rad-x9-Dv7" id="Zvl-EG-xvQ"/>
+                        <outlet property="detailRating" destination="yiZ-0b-bNB" id="y3N-Zd-GFw"/>
+                        <outlet property="detailRelease" destination="4NM-lY-Mqu" id="VZe-cD-ECb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jOG-KT-u4V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
