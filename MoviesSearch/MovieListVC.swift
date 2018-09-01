@@ -31,7 +31,7 @@ class MovieListVC: UIViewController {
         
     }
     
-    
+// MARK: FilterAction
     
     @IBAction func filterMovies(_ sender: Any) {
         
@@ -57,7 +57,7 @@ class MovieListVC: UIViewController {
     }
     
     
-    
+// MARK: GetURL Function
     
     func getData(url:URL)  {
         
@@ -108,14 +108,11 @@ class MovieListVC: UIViewController {
 }
 
 
-extension MovieListVC: UICollectionViewDelegate,UICollectionViewDataSource{
+// MARK: CollectionViewDelegates
+
+extension MovieListVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let padding: CGFloat = 50
-        let collectionViewSize = collectionView.frame.size.width - padding
-        return CGSize(width: collectionViewSize/2, height: collectionViewSize/3)
-        
-    }
+  
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -138,6 +135,11 @@ extension MovieListVC: UICollectionViewDelegate,UICollectionViewDataSource{
             
             cell.posterImage.image = image
             cell.titleLbl.text = self.titleArray[indexPath.item]
+            cell.layer.shadowColor = UIColor.black.cgColor
+            cell.layer.shadowOffset = CGSize(width: 1, height: 1)
+            cell.layer.shadowOpacity = 0.7
+            cell.layer.shadowRadius = 2.0
+            cell.layer.cornerRadius = 10.0
         }
         
         return cell
@@ -166,7 +168,17 @@ extension MovieListVC: UICollectionViewDelegate,UICollectionViewDataSource{
             self.navigationController?.pushViewController(nextVC, animated: true)
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
+        let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
+        let size:CGFloat = (collectionView.frame.size.width - space) / 2.0
+        return CGSize(width: size, height: size)
+    }
 }
+
+
+// MARK: SearcgBarDelegate
 
 extension MovieListVC: UISearchBarDelegate{
     
