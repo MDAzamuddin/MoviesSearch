@@ -24,11 +24,11 @@ class MovieListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.getData(url: URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=01bbb9d638f6e9e097e2beca52ab1a5c&language=en-US")!)
-        
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.movieSearch.delegate = self
+        self.getData(url: URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=01bbb9d638f6e9e097e2beca52ab1a5c&language=en-US")!)
+        
     }
     
     
