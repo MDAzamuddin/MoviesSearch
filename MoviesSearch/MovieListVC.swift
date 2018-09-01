@@ -187,8 +187,12 @@ extension MovieListVC: UISearchBarDelegate{
                    replacementText text: String) -> Bool{
         
         self.getData(url: URL(string: "https://api.themoviedb.org/3/search/movie?api_key=01bbb9d638f6e9e097e2beca52ab1a5c&language=en-US&query=\(self.movieSearch.text!)&page=1")!)
+        
         return true
     }
-    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
+        
+        self.movieSearch.endEditing(true)
+    }
 }
 
