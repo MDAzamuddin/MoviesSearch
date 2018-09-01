@@ -136,10 +136,12 @@ extension MovieListVC: UICollectionViewDelegate,UICollectionViewDataSource,UICol
             cell.posterImage.image = image
             cell.titleLbl.text = self.titleArray[indexPath.item]
             cell.layer.shadowColor = UIColor.black.cgColor
-            cell.layer.shadowOffset = CGSize(width: 1, height: 1)
-            cell.layer.shadowOpacity = 0.7
-            cell.layer.shadowRadius = 2.0
-            cell.layer.cornerRadius = 10.0
+            cell.layer.shadowOffset = CGSize(width: 3, height: 3)
+            cell.layer.shadowOpacity = 1.0
+            cell.layer.shadowRadius = 4.0
+            cell.layer.cornerRadius = 5.0
+            cell.layer.borderWidth = 1.0
+            cell.layer.borderColor = UIColor.lightGray.cgColor
         }
         
         return cell

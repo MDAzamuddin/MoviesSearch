@@ -26,7 +26,7 @@
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qDK-gn-ODy">
                                 <rect key="frame" x="0.0" y="120" width="375" height="547"/>
-                                <color key="backgroundColor" red="0.2470588235" green="0.72156862749999995" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pPr-Cc-iJU">
                                     <size key="itemSize" width="140" height="140"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -146,7 +146,7 @@
                                                 </subviews>
                                             </stackView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SYp-EX-8zD">
-                                                <rect key="frame" x="16" y="441" width="343" height="191"/>
+                                                <rect key="frame" x="16" y="437" width="343" height="191"/>
                                                 <color key="backgroundColor" red="0.2470588235" green="0.72156862749999995" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="191" id="TpG-GE-TLR"/>
@@ -191,7 +191,7 @@
                                             <constraint firstItem="nCh-Yp-4aq" firstAttribute="top" secondItem="rad-x9-Dv7" secondAttribute="bottom" constant="33" id="3e2-9g-eQh"/>
                                             <constraint firstAttribute="trailing" secondItem="SYp-EX-8zD" secondAttribute="trailing" constant="16" id="DiG-PF-lCZ"/>
                                             <constraint firstAttribute="height" constant="647" id="HBE-VD-93b"/>
-                                            <constraint firstItem="SYp-EX-8zD" firstAttribute="top" secondItem="nCh-Yp-4aq" secondAttribute="bottom" constant="18" id="SWE-6W-Z0Y"/>
+                                            <constraint firstItem="SYp-EX-8zD" firstAttribute="top" secondItem="nCh-Yp-4aq" secondAttribute="bottom" constant="14" id="SWE-6W-Z0Y"/>
                                             <constraint firstAttribute="trailing" secondItem="rad-x9-Dv7" secondAttribute="trailing" id="Xkb-FB-lxF"/>
                                             <constraint firstItem="3zU-hM-5Py" firstAttribute="leading" secondItem="nCh-Yp-4aq" secondAttribute="trailing" constant="44.5" id="Yqd-Gx-f2Z"/>
                                             <constraint firstItem="3zU-hM-5Py" firstAttribute="top" secondItem="rad-x9-Dv7" secondAttribute="bottom" constant="36" id="Z1A-k7-9Hq"/>
