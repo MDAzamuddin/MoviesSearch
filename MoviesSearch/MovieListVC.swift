@@ -21,21 +21,29 @@ class MovieListVC: UIViewController {
     var ratingArray = [String]()
     var overviewArray = [String]()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateUI()
+        
+    }
+    
+    // MARK: UpdateUI
+    func updateUI(){
         
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.movieSearch.delegate = self
         self.getData(url: URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=01bbb9d638f6e9e097e2beca52ab1a5c&language=en-US")!)
         
+        
     }
     
-// MARK: FilterAction
+    // MARK: FilterAction
     
     @IBAction func filterMovies(_ sender: Any) {
         
-        let actionsheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        let actionsheet = UIAlertController(title: "Sort", message: "You can sort movies here", preferredStyle: UIAlertControllerStyle.actionSheet)
         
         actionsheet.addAction(UIAlertAction(title: "Popular Movies", style: UIAlertActionStyle.default, handler: { (action) -> Void in
             
@@ -44,7 +52,7 @@ class MovieListVC: UIViewController {
         
         actionsheet.addAction(UIAlertAction(title: "High Rated Movies", style: UIAlertActionStyle.default, handler: { (action) -> Void in
             
-            self.getData(url: URL(string: "https://api.themoviedb.org/3/movie/top_rated?api_key=01bbb9d638f6e9e097e2beca52ab1a5c&language=en-US&page=1")!)
+            self.getData(url: URL(string: "https://api.themoviedb.org/3/movie/top_rated?api_key=01bbb9d638f6e9e097e2beca52ab1a5c&language=en-US")!)
             
         }))
         actionsheet.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: { (action) -> Void in
@@ -57,7 +65,7 @@ class MovieListVC: UIViewController {
     }
     
     
-// MARK: GetURL Function
+    // MARK: GetURL Function
     
     func getData(url:URL)  {
         
@@ -112,7 +120,6 @@ class MovieListVC: UIViewController {
 
 extension MovieListVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     
-  
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -126,11 +133,8 @@ extension MovieListVC: UICollectionViewDelegate,UICollectionViewDataSource,UICol
         DispatchQueue.main.async {
             let stringUrl = "https://image.tmdb.org/t/p/w500\(self.imageArray[indexPath.item])"
             let url = URL(string: stringUrl)
-            guard let data1 = try? Data(contentsOf: url!)
-                else{
-                    return
-            }
-            
+            guard let data1 = try? Data(contentsOf: url!) else{return}
+         
             let image = UIImage(data: data1)
             
             cell.posterImage.image = image
@@ -172,6 +176,7 @@ extension MovieListVC: UICollectionViewDelegate,UICollectionViewDataSource,UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
         let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
         let size:CGFloat = (collectionView.frame.size.width - space) / 2.0
@@ -188,7 +193,7 @@ extension MovieListVC: UISearchBarDelegate{
                    shouldChangeTextIn range: NSRange,
                    replacementText text: String) -> Bool{
         
-        self.getData(url: URL(string: "https://api.themoviedb.org/3/search/movie?api_key=01bbb9d638f6e9e097e2beca52ab1a5c&language=en-US&query=\(self.movieSearch.text!)&page=1")!)
+        self.getData(url: URL(string: "https://api.themoviedb.org/3/search/movie?api_key=01bbb9d638f6e9e097e2beca52ab1a5c&language=en-US&query=\(self.movieSearch.text!)")!)
         
         return true
     }
